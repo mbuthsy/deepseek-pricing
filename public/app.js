@@ -4,12 +4,12 @@ const PEAK_RANGES = [
 ];
 
 const BASE_PRICES = {
-  "cacheHit-flash": 0.0028,
-  "cacheHit-pro": 0.003625,
-  "cacheMiss-flash": 0.14,
-  "cacheMiss-pro": 0.435,
-  "output-flash": 0.28,
-  "output-pro": 0.87,
+  "cacheHit-flash": 0.007,
+  "cacheHit-pro": 0.022,
+  "cacheMiss-flash": 0.22,
+  "cacheMiss-pro": 0.66,
+  "output-flash": 0.66,
+  "output-pro": 1.98,
 };
 
 function fmtPrice(v) {
