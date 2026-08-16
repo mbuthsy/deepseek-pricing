@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepSeek Peak / Off-Peak Status</title>
+  <meta name="theme-color" content="#0f1420" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DS Pricing" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9200;</text></svg>" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>DeepSeek Pricing Status</h1>
+
+    <div id="status" class="status">
+      <div class="badge" id="badge">Loading…</div>
+      <p class="multiplier" id="multiplier"></p>
+    </div>
+
+    <div class="times">
+      <p id="localNow"></p>
+      <p id="utcNow"></p>
+      <p id="countdown" class="countdown"></p>
+    </div>
+
+    <section class="schedule">
+      <h2>Peak Hours (2&times; price)</h2>
+      <ul>
+        <li>01:00&ndash;04:00 UTC</li>
+        <li>06:00&ndash;10:00 UTC</li>
+      </ul>
+      <p class="note">UTC+8: 09:00&ndash;12:00 &amp; 14:00&ndash;18:00. All other times are off-peak (standard price).</p>
+    </section>
+
+    <section class="pricing">
+      <h2 id="pricingTitle">Current Prices (USD / 1M tokens)</h2>
+      <table id="priceTable">
+        <thead>
+          <tr><th>Item</th><th>V4-Flash</th><th>V4-Pro</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Input (cache hit)</td><td data-k="cacheHit-flash"></td><td data-k="cacheHit-pro"></td></tr>
+          <tr><td>Input (cache miss)</td><td data-k="cacheMiss-flash"></td><td data-k="cacheMiss-pro"></td></tr>
+          <tr><td>Output</td><td data-k="output-flash"></td><td data-k="output-pro"></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Standard prices from <a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener">DeepSeek API docs</a>. Peak prices are 2&times; standard.</p>
+    </section>
+
+    <button id="alertBtn" class="alert-btn">Enable Peak/Off-Peak Alerts</button>
+    <p id="alertStatus" class="alert-status"></p>
+
+    <button id="installBtn" class="alert-btn" style="display:none;margin-top:.75rem;background:#8b5cf6;">Install App</button>
+    <p id="installHint" class="alert-status"></p>
+
+    <footer>Peak-valley pricing effective mid-July. Verify current rates with DeepSeek.</footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>

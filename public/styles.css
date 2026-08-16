@@ -1,0 +1,91 @@
+:root {
+  --peak: #e8503a;
+  --offpeak: #2ea865;
+  --bg: #0f1420;
+  --card: #1a2130;
+  --text: #e6e9ef;
+  --muted: #8a93a6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0,0,0,.4);
+  text-align: center;
+}
+
+h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+h2 { font-size: 1rem; margin-bottom: .5rem; color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: .6rem 1.4rem;
+  border-radius: 999px;
+  letter-spacing: .5px;
+}
+.badge.peak { background: var(--peak); color: #fff; }
+.badge.offpeak { background: var(--offpeak); color: #fff; }
+
+.multiplier { margin-top: .75rem; font-size: 1.1rem; }
+
+.times { margin: 1.5rem 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+.countdown { color: var(--text); font-weight: 600; }
+
+.schedule {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.schedule ul { list-style: none; font-family: monospace; font-size: 1rem; margin: .25rem 0; }
+.schedule li { padding: .15rem 0; }
+.note { font-size: .8rem; color: var(--muted); margin-top: .5rem; }
+
+.pricing {
+  background: rgba(255,255,255,.04);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.pricing table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.pricing th, .pricing td { padding: .4rem .3rem; text-align: right; }
+.pricing th:first-child, .pricing td:first-child { text-align: left; color: var(--muted); }
+.pricing thead th { border-bottom: 1px solid rgba(255,255,255,.12); }
+.pricing tbody td { font-family: monospace; }
+.pricing a { color: #60a5fa; }
+
+.alert-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .8rem 1.2rem;
+  font-size: .95rem;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity .2s;
+}
+.alert-btn:hover { opacity: .9; }
+.alert-btn:disabled { background: #475569; cursor: default; }
+
+.alert-status { font-size: .8rem; color: var(--muted); margin-top: .6rem; min-height: 1em; }
+
+footer { margin-top: 1.5rem; font-size: .72rem; color: var(--muted); }
